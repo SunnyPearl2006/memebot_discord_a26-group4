@@ -13,7 +13,7 @@ const event = {
     /*
       TODO: Change getWelcomeMessage to getWelcomeMessageWithMeme to send a meme to welcome your user.
     */
-    const welcomeMessage = await getWelcomeMessage(member.id);
+    const welcomeMessage = await getWelcomeMessageWithMeme(member.id);
     channel.send(welcomeMessage);
   },
 };
@@ -40,9 +40,17 @@ const getWelcomeMessageWithMeme = async (userId) => {
   */
   const meme = await getMeme();
 
+  const welcomeMessages = [
+    "Howdy new member here\'s a meme for you to enjoy!",
+    "Here\'s a meme to brighten your day!",
+    "Were happy to see you join the server!",
+    "We have a card game bot! try /game to play!"
+  ];
+  const randomWelcomceMessage = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+
   return {
     content: `Welcome ${userMention(userId)},
-    Here's a meme for you to enjoy!`,
+    ${randomWelcomceMessage}`,
     embeds: [meme],
   };
 };
@@ -53,7 +61,17 @@ const getMeme = async () => {
 
     TODO: change this function to return a different meme randomly everytime a new user joins.
   */
-  return new EmbedBuilder().setImage(MEME_URL);
+  // could use loadFiles for dynamic loading but this was simpler
+  const memePaths = [
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/JACKED.png",
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/MegaMeme.png",
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/OnFire.png",
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/Pepe.png",
+  ];
+
+  const randomMeme = memePaths[Math.floor(Math.random() * memePaths.length)];
+
+  return new EmbedBuilder().setImage(randomMeme);
 };
 
 export default event;
