@@ -63,10 +63,10 @@ const getMeme = async () => {
   */
   // could use loadFiles for dynamic loading but this was simpler
   const memePaths = [
-    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/JACKED.png",
-    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/MegaMeme.png",
-    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/OnFire.png",
-    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/Pepe.png",
+    "https://raw.githubusercontent.com/SunnyPearl2006/memebot_discord_a26-group4/main/assets/JACKED.png"
+    "https://raw.githubusercontent.com/SunnyPearl2006/memebot_discord_a26-group4/main/assets/MegaMeme.png"
+    "https://raw.githubusercontent.com/SunnyPearl2006/memebot_discord_a26-group4/main/assets/OnFire.png"
+    "https://raw.githubusercontent.com/SunnyPearl2006/memebot_discord_a26-group4/main/assets/Pepe.png"
   ];
 
   const randomMeme = memePaths[Math.floor(Math.random() * memePaths.length)];
