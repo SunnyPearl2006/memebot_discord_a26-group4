@@ -61,7 +61,17 @@ const getMeme = async () => {
 
     TODO: change this function to return a different meme randomly everytime a new user joins.
   */
-  return new EmbedBuilder().setImage(MEME_URL);
+  // could use loadFiles for dynamic loading but this was simpler
+  const memePaths = [
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/JACKED.png",
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/MegaMeme.png",
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/OnFire.png",
+    "https://github.com/SunnyPearl2006/memebot_discord_a26-group4/blob/main/assets/Pepe.png",
+  ];
+
+  const randomMeme = memePaths[Math.floor(Math.random() * memePaths.length)];
+
+  return new EmbedBuilder().setImage(randomMeme);
 };
 
 export default event;
