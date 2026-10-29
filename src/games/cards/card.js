@@ -1,24 +1,34 @@
-// how each card is formatted - how to display the card 
-// suit, value
+const Suit = {
+  HEARTS:   { name: 'hearts',   symbol: '\u2665', color: 'red'   }, // ♥
+  CLUBS:    { name: 'clubs',    symbol: '\u2663', color: 'black' }, // ♣
+  DIAMONDS: { name: 'diamonds', symbol: '\u2666', color: 'red'   }, // ♦
+  SPADES:   { name: 'spades',   symbol: '\u2660', color: 'black' }, // ♠
+};
 
-const suitSpade = '\u2660';   // ♠
-const suitHeart = '\u2665';   // ♥
-const suitDiamond = '\u2666'; // ♦
-const suitClub = '\u2663';    // ♣
+const RANK_LABELS = { 11: 'J', 12: 'Q', 13: 'K', 14: 'A' };
 
 class Card {
-    #value;
-    #suit;
-    constructor(value_, suit_) {   
-        value = value_;
-        suit = suit_;
-    }
+  #rank;
+  #suit;
 
-    getIcon(suit){
-        return 
+  constructor(rank, suit) {
+    // add in bounds checking
+    // throw error in case of misuse
+    if(rank < 2 || rank > 14 || !Object.values(Suit).includes(suit)){
+        throw new Error("invalid parameters for card class"); 
     }
+    this.#rank = rank;
+    this.#suit = suit;
+  }
 
-    toString() { 
-        return `${value} ${getIcon(suit)}`; 
-    }
+  get rank() { return this.#rank; }
+  get suit() { return this.#suit; }
+
+  get rankLabel() {
+    return this.#rank > 10 ? RANK_LABELS[this.#rank] : String(this.#rank);
+  }
+
+  toString() {
+    return `${this.rankLabel}${this.#suit.symbol}`;
+  }
 }
