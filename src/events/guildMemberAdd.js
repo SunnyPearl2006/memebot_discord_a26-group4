@@ -1,5 +1,5 @@
 import { EmbedBuilder, userMention } from "discord.js";
-
+import { addUserToDataBase } from "../helpers/manDataBase";
 const CHANNEL_NAME = process.env.CHANNEL_NAME;
 const MEME_URL = process.env.MEME_URL || "";
 
@@ -15,6 +15,7 @@ const event = {
     */
     const welcomeMessage = await getWelcomeMessageWithMeme(member.id);
     channel.send(welcomeMessage);
+    await addUserToDataBase(member.id);
   },
 };
 

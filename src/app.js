@@ -17,4 +17,4 @@ client.events = new Collection();
 
 loadEvents(client, path.join(__dirname, "events"));
 
-client.login(TOKEN);
+client.login(TOKEN).catch(console.error);
