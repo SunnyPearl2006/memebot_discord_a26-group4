@@ -10,6 +10,11 @@ export default function loadEvents(client, dirName) {
 
   for (const file of files) {
     const event = require(path.join(dirName, file)).default;
+if (!event){
+  console.log('Failed: ${file} has no default export');
+  table.addRow(file,"Failed");
+  continue;
+}
 
     const execute = (...args) => event.execute(...args, client);
     client.events.set(event.name, execute);
