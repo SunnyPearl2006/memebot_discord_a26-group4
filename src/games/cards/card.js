@@ -1,8 +1,8 @@
 const Suit = {
-  HEARTS:   { name: 'hearts',   symbol: '\u2665', color: 'red'   },
-  CLUBS:    { name: 'clubs',    symbol: '\u2663', color: 'black' },
-  DIAMONDS: { name: 'diamonds', symbol: '\u2666', color: 'red'   },
-  SPADES:   { name: 'spades',   symbol: '\u2660', color: 'black' },
+  HEARTS:   { name: 'hearts',   symbol: '\u2665', color: 'red'   }, // ♥
+  CLUBS:    { name: 'clubs',    symbol: '\u2663', color: 'black' }, // ♣
+  DIAMONDS: { name: 'diamonds', symbol: '\u2666', color: 'red'   }, // ♦
+  SPADES:   { name: 'spades',   symbol: '\u2660', color: 'black' }, // ♠
 };
 
 const RANK_LABELS = { 11: 'J', 12: 'Q', 13: 'K', 14: 'A' };
