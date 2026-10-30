@@ -7,14 +7,14 @@ const Suit = {
 
 const RANK_LABELS = { 11: 'J', 12: 'Q', 13: 'K', 14: 'A' };
 
-class Card {
+export class Card {
   #rank;
   #suit;
 
   constructor(rank, suit) {
     // add in bounds checking
     // throw error in case of misuse
-    if(rank < 2 || rank > 14 || !Object.values(Suit).includes(suit)){
+    if(!Number.isInteger(rank) || rank < 2 || rank > 14 || !Object.values(Suit).includes(suit)){
         throw new Error("invalid parameters for card class"); 
     }
     this.#rank = rank;
@@ -32,3 +32,5 @@ class Card {
     return `${this.rankLabel}${this.#suit.symbol}`;
   }
 }
+
+export { Suit };
