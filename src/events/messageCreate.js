@@ -13,8 +13,12 @@ const event = {
       case "!testdraw":{
         const newDeck = new Deck();
         newDeck.shuffle();
-        const card = newDeck.draw();
-        message.reply(`Creates a deck, shuffles it, print top card: ${card}`);
+        let messReply = `Creates a deck of size ${newDeck.size}, shuffles it\n`;
+        for(let i=0; i<newDeck.capacity; ++i){
+          const card = newDeck.draw();
+          messReply += `${card}\n`;
+        }
+        message.reply(messReply);
         break;
         // old build code from package.json 
         //"build": "rm -rf build && esbuild src/*.js src/**/*.js --platform=node --format=cjs  --outdir=build --outbase=src",

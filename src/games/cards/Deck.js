@@ -1,5 +1,4 @@
-import Card from './Card.js'
-import { Suit } from './Card.js';
+import { Card, Suit } from './Card.js';
 
 export class Deck {
     #decks; // number of 52-card decks in the total deck
