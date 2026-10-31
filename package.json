@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "this is a demo project for teaching how to build a discord bot",
   "scripts": {
-    "build": "rm -rf build && esbuild \"src/**/*.js\" --platform=node --format=cjs --outdir=build --outbase=src",
+    "build": "rm -rf build && esbuild $(find src -name '*.js') --platform=node --format=cjs --outdir=build --outbase=src",
     "start": "npm run build && node -r dotenv/config build/app.js",
     "dev": "nodemon",
     "prod": "node build/app.js",
